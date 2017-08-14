@@ -1,11 +1,15 @@
 package com.doepiccoding.voiceanalizer;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Vibrator;
@@ -34,6 +38,8 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+
 		
 		mouthImage = (ImageView)findViewById(R.id.mounthHolder);
 		mouthImage.setKeepScreenOn(true);
@@ -49,11 +55,31 @@ public class MainActivity extends Activity {
 
 	protected void onResume() {
 		super.onResume();
+
+		if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
+			//Manifest.permission.READ_CALENDAR이 접근 승낙 상태 일때
+		} else{
+			//Manifest.permission.READ_CALENDAR이 접근 거절 상태 일때
+			if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.RECORD_AUDIO)){
+				//사용자가 다시 보지 않기에 체크를 하지 않고, 권한 설정을 거절한 이력이 있는 경우
+			} else{
+				//사용자가 다시 보지 않기에 체크하고, 권한 설정을 거절한 이력이 있는 경우
+			}
+
+			//사용자에게 접근권한 설정을 요구하는 다이얼로그를 띄운다.
+			//만약 사용자가 다시 보지 않기에 체크를 했을 경우엔 권한 설정 다이얼로그가 뜨지 않고,
+			//곧바로 OnRequestPermissionResult가 실행된다.
+			ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.RECORD_AUDIO},0);
+
+		}
+
 		audio = new AudioRecord(MediaRecorder.AudioSource.MIC, sampleRate,
 				AudioFormat.CHANNEL_IN_MONO,
 				AudioFormat.ENCODING_PCM_16BIT, bufferSize);
 
 		audio.startRecording(); //녹음 시작
+
+
 		thread = new Thread(new Runnable() { // 스레드 생성
 			public void run() {
 				while(thread != null && !thread.isInterrupted()){
