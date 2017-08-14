@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\IncomingCallMarketBroadcastReceiver-master\\VoiceAnalizer\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
         "source": "C:\\Users\\Administrator\\Desktop\\IncomingCallMarketBroadcastReceiver-master\\VoiceAnalizer\\app\\src\\main\\res\\menu\\main.xml"
     }
