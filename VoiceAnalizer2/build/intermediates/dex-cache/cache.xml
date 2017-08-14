@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\7e376b9f7add04f649a889e3e85a43adaee95ecf\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4ccbcda5c72027c7f7c14be9ff8640d9cb0d8da0">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_886c7c5606a207a0b2740f38c5cdcce04465d70e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\9ae3096246c544eb5022d4c8233a336ccf41bb31\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="07daa0b6e1d455c82a38422ffe287c18823d339a">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_4df567ad8a474ecb66d4da1d1bec16da2d4d91cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\b232cb1ef50643682ced62bae10813f191cc1c13\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_ac6a739840834be893d14bbe6cbbb61fc204b827.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\238fc7269dea24a1d7cfda07076b2ce6252bd0ea\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_831260562aae0444c4690797d8a39855cd298ab9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\9ae3096246c544eb5022d4c8233a336ccf41bb31\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="ee5faf4dee5b6a4364bf51587871047dde7c703a">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_bad4022361cd669f0b1c8f7716bc59a8bdc07bff.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b8a118bd92fd68fa33497fe908655cf5f8adce47\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\support-annotations-25.0.0_dd93bbd8780fbde23c070b4f61f0458306d705f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\8e34948c1eb9ef167eb3751417c7f70d5f4bae58\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_c9fa85bcca4be01ef3711890ac1ac877502db1d9.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="b7c42e4b6e6ded00e36fc0bd6b86af7bc2e87184">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3968dfccb385a456b4966c0c9e2feaa728b94539\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\7e376b9f7add04f649a889e3e85a43adaee95ecf\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3b61a70884adaf0be3fc06c70c801e3e6df13133">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_1487afdf815a05668b03fb7f15ef476f8870eb72.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\3fa31ef7df0e078fd1608f804eab1a0fd712ae7a\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_57337074922fd73b8e18ef36c410cea7120997c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\3fa31ef7df0e078fd1608f804eab1a0fd712ae7a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_2c503c1feb921eb5453f5e0c1740e7588d4e4f6d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\b232cb1ef50643682ced62bae10813f191cc1c13\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\classes_43ebee854167b89138a91422458b49ebb072182f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.android\build-cache\8e34948c1eb9ef167eb3751417c7f70d5f4bae58\output\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="C:\Users\Administrator\Desktop\IncomingCallMarketBroadcastReceiver-master\VoiceAnalizer\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.0_0f35a36ed38ece702538b17f1190ba9b73c59f6a.jar" />
+    </item>
+
+</items>
