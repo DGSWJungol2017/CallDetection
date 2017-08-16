@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="city">
+        <item >대구은행북비산지점앞</item>
+        <item >대구은행북비산지점건너1</item>
+        <item >대구은행북비산지점건너2</item>
+        <item >북비산네거리1</item>
+        <item >북비산네거리2</item>
+        <item >비산초등학교앞</item>
+        <item >대평중학교앞</item>
+    </string-array>
+
+    <string-array name="bus">
+        <item >724</item>
+        <item >309</item>
+    </string-array>
+
+    <string-array name="destination">
+        <item >곽병원</item>
+        <item >CGV대구한일</item>
+
+    </string-array>
+</resources>
