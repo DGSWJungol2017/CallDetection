@@ -8,6 +8,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.PhoneStateListener;
@@ -26,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private CameraManager mCameraManager;
     private String mCameraId;
     private ImageButton mTorchOnOffButton;
-    private Boolean isTorchOn;
+    private Boolean isTorchOn=true;
+    private Boolean isRinging=false;
 
 
 
@@ -35,24 +37,40 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
 
-            switch (state){
-                case TelephonyManager.CALL_STATE_IDLE:
-                    Log.i("상태", "울림x 통화x");
-                    isTorchOn = false;
-                    turnOffFlashLight();
-                    break;
-                case TelephonyManager.CALL_STATE_RINGING:
-                    Log.i("상태", "울림o 통화x");
-                    turnOnFlashLight();
-                    isTorchOn = true;
-                    break;
-                case TelephonyManager.CALL_STATE_OFFHOOK:
-                    Log.i("상태", "통화중");
-                    turnOffFlashLight();
-                    isTorchOn = false;
-                    break;
-                default: break;
+            if(state==TelephonyManager.CALL_STATE_RINGING){
+                Log.i("상태: ", "울리는중");
+                turnOnFlashLight();
+            }else if(state==TelephonyManager.CALL_STATE_OFFHOOK){
+                turnOffFlashLight();
+                Log.i("상태: ", "통화중");
+//                flashLoop();
+            }else{
+                flashLoop(false);
+                Log.i("상태: ", "통화끊음");
+                turnOffFlashLight();
             }
+
+//            switch (state){
+//                case TelephonyManager.CALL_STATE_IDLE:
+//                    Log.i("상태", "울림x 통화x");
+//                    turnOffFlashLight();
+//                    isRinging=false;
+//                    flash();
+//                    break;
+//                case TelephonyManager.CALL_STATE_RINGING:
+//                    Log.i("상태", "울림o 통화x");
+//                    isRinging=true;
+//                    flashLoop();
+//                    break;
+//                case TelephonyManager.CALL_STATE_OFFHOOK:
+//                    Log.i("상태", "통화중");
+//                    turnOffFlashLight();
+//                    isRinging=false;
+//                    flashLoop();
+//                    break;
+//
+//                default: break;
+//            }
         }
     };
 
@@ -62,14 +80,21 @@ public class MainActivity extends AppCompatActivity {
         Log.d("FlashLightActivity", "onCreate()");
         setContentView(R.layout.activity_main);
         mTorchOnOffButton = (ImageButton) findViewById(R.id.button_on_off);
+
+        flash();
+
+        telephonyManager=(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
+        telephonyManager.listen(phoneStateListener, phoneStateListener.LISTEN_CALL_STATE);
+    }
+
+    public void flash(){
         isTorchOn = false;
 
         Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
 
         if (!isFlashAvailable) {
 
-            AlertDialog alert = new AlertDialog.Builder(MainActivity.this)
-                    .create();
+            AlertDialog alert = new AlertDialog.Builder(MainActivity.this).create();
             alert.setTitle("에러");
             alert.setMessage("이 기기가 플래시를 지원하지 않습니다.");
             alert.setButton(DialogInterface.BUTTON_POSITIVE, "OK",
@@ -90,27 +115,23 @@ public class MainActivity extends AppCompatActivity {
         } catch (CameraAccessException e) {
             e.printStackTrace();
         }
+    }
 
-        mTorchOnOffButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (isTorchOn) {
-                        turnOffFlashLight();
-                        isTorchOn=false;
-                    } else {
-                        turnOnFlashLight();
-                        isTorchOn=true;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
+    public void flashLoop(Boolean isRinging) {
+        if(isRinging) {
+            while (true) {
+                SystemClock.sleep(100);
+                turnOnFlashLight();
+                SystemClock.sleep(100);
+                turnOffFlashLight();
+
+                if(!isRinging){
+                    break;
                 }
             }
-        });
-
-
-        telephonyManager=(TelephonyManager)this.getSystemService(Context.TELEPHONY_SERVICE);
-        telephonyManager.listen(phoneStateListener, phoneStateListener.LISTEN_CALL_STATE);
+        }else {
+            turnOffFlashLight();
+        }
     }
 
     public void turnOnFlashLight() {
@@ -119,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, true);
                 mTorchOnOffButton.setImageResource(R.mipmap.ic_launcher);
-                Log.i("플래시", "킴");
+                isTorchOn=false;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -127,16 +148,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void turnOffFlashLight() {
-
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCameraManager.setTorchMode(mCameraId, false);
                 mTorchOnOffButton.setImageResource(R.mipmap.ic_launcher);
-                Log.i("플래시", "끔");
+                isTorchOn=false;
             }
-
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void onclick(View view) {
+        if(isTorchOn){
+            turnOffFlashLight();
+            isTorchOn=false;
+        }else{
+            turnOnFlashLight();
+            isTorchOn=true;
         }
     }
 }

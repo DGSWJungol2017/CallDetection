@@ -9,7 +9,7 @@
     android:gravity="center">
 
     <ImageButton
-
+        android:onClick="onclick"
         android:layout_gravity="center"
         android:id="@+id/button_on_off"
         android:layout_width="wrap_content"

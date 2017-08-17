@@ -1,16 +1,18 @@
 package com.doepiccoding.voiceanalizer;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.os.Vibrator;
-
-
 
 
 
@@ -24,13 +26,45 @@ public class MainActivity extends Activity {
 	private static final int SAMPLE_DELAY = 75;
 	private ImageView mouthImage;
 
+	private CameraManager mCameraManager;
+	private String mCameraId;
+	private ImageButton mTorchOnOffButton;
+	private Boolean isTorchOn;
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
+		isTorchOn = false;
+
+		Boolean isFlashAvailable = getApplicationContext().getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+		if (!isFlashAvailable) {
+
+			AlertDialog alert = new AlertDialog.Builder(MainActivity.this).create();
+			alert.setTitle("에러");
+			alert.setMessage("이 기기가 플래시를 지원하지 않습니다.");
+			alert.setButton(DialogInterface.BUTTON_POSITIVE, "OK",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							// 앱 강제종료
+							finish();
+							System.exit(0);
+						}
+					});
+			alert.show();
+			return;
+		}
+
+		mCameraManager = (CameraManager)getSystemService(Context.CAMERA_SERVICE);
+		try {
+			mCameraId = mCameraManager.getCameraIdList()[0];
+		} catch (CameraAccessException e) {
+			e.printStackTrace();
+		}
+
 		mouthImage = (ImageView)findViewById(R.id.mounthHolder);
 		mouthImage.setKeepScreenOn(true);
 
@@ -73,9 +107,6 @@ public class MainActivity extends Activity {
 
 								Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 								vibe.vibrate( 5000 ); // 5초 동안 진동
-
-
-
 							}
 						}
 					});
