@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.os.Vibrator;
 
@@ -28,10 +29,20 @@ public class MainActivity extends Activity {
 	private static final int SAMPLE_DELAY = 75;
 	private ImageView mouthImage;
 
-	private double recentSound = 0;
+    private int different = 100;
 
-	private static final int different = 50;
+    private SeekBar sb;
+    private  TextView diffTv;
 
+	final int MAX_CNT = 20;
+	double[] volArr = new double[MAX_CNT];
+
+	double volSum=0;
+	double volAvg;
+	static final int viveSec = 4000;
+
+	private int i, j = 0
+			;
 
 
 	@Override
@@ -39,7 +50,29 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+        diffTv = (TextView) findViewById(R.id.diffMaxResult);
 
+        sb = (SeekBar) findViewById(R.id.diffMax);
+        sb.setProgress(different);
+		diffTv.setText(String.valueOf(different));
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                                          public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+												different = progress;
+											  	diffTv.setText(String.valueOf(different));
+
+                                          }
+
+                                          @Override
+                                          public void onStartTrackingTouch(SeekBar seekBar) {
+
+                                          }
+
+                                          @Override
+                                          public void onStopTrackingTouch(SeekBar seekBar) {
+
+
+                                          }
+                                      });
 		
 		mouthImage = (ImageView)findViewById(R.id.mounthHolder);
 		mouthImage.setKeepScreenOn(true);
@@ -55,6 +88,8 @@ public class MainActivity extends Activity {
 
 	protected void onResume() {
 		super.onResume();
+
+
 
 		if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED){
 			//Manifest.permission.READ_CALENDAR이 접근 승낙 상태 일때
@@ -86,21 +121,28 @@ public class MainActivity extends Activity {
 					//Let's make the thread sleep for a the approximate sampling time
 					try{Thread.sleep(SAMPLE_DELAY);}catch(InterruptedException ie){ie.printStackTrace();}
 					readAudioBuffer();//After this call we can get the last value assigned to the lastLevel variable
-					
+
+//					final double[] volArr;
+//					volArr = new double[20];
+
+
+
 					runOnUiThread(new Runnable() {
-						
+
+
 						@Override
 						public void run() {
-							if(recentSound + different < lastLevel) {
+
+
+
+							if(volAvg + different < lastLevel) {
 								mouthImage.setImageResource(R.drawable.mouth1);
 
 								Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-								vibe.vibrate(5000);
+								vibe.vibrate(viveSec);//4초
 							} else {
 								mouthImage.setImageResource(R.drawable.mouth4);
 							}
-
-							recentSound = lastLevel;
 						}
 					});
 				}
@@ -129,10 +171,26 @@ public class MainActivity extends Activity {
 				for (int i = 0; i < bufferReadResult; i++) {
 					sumLevel += buffer[i];
 				}
+
 				lastLevel = Math.abs((sumLevel / bufferReadResult));
 
+				if(j >= MAX_CNT){
+					volAvg = volSum / MAX_CNT;
+					volSum = 0;
+
+					volArr = null;
+					volArr = new double[MAX_CNT];
+
+					j = 0;
+				}
+
+				volSum += lastLevel;
+				volArr[j] = lastLevel;
+
+				j++;
+
 				TextView tv = (TextView)findViewById(R.id.noise);
-				tv.setText(""+lastLevel);
+				tv.setText(""+volAvg);
 			}
 
 		} catch (Exception e) {

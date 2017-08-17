@@ -23,7 +23,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginLeft="100dp"
         android:textSize="25sp"
-        android:text="경적/사이렌 감지 후 진동" />
+        android:text="큰 소리 감지 후 진동" />
 
     <ImageView
         android:id="@+id/mounthHolder"
@@ -37,6 +37,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
+
+    <SeekBar
+        android:layout_marginTop="150dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/diffMax"/>
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="200dp"
+        android:id="@+id/diffMaxResult"
+        android:max="300"
+        android:progress="50"
+        />
+
+
 
 
 </RelativeLayout>

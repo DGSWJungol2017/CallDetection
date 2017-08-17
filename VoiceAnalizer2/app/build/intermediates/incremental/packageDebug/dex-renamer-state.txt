@@ -1,7 +1,7 @@
-#Tue Aug 15 00:10:14 KST 2017
-base.0=C\:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_b22b082d50096fb251b6cea190287b0b61570445
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_de76471618981394e66d189b6240ffccb46a4f6b\\classes.dex
-base.1=C\:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_de76471618981394e66d189b6240ffccb46a4f6b
-file.0=C\:\\Users\\jihon\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_b22b082d50096fb251b6cea190287b0b61570445\\classes.dex
+#Thu Aug 17 10:28:15 KST 2017
+base.0=C\:\\Users\\Administrator\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_d6c52008c812186bbb7a0bb5c37149717c6d4a98
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Administrator\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_9fb23eda53a82d648c03a23f9751ad70ffbb1938\\classes.dex
+base.1=C\:\\Users\\Administrator\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run-bootstrap_9fb23eda53a82d648c03a23f9751ad70ffbb1938
+file.0=C\:\\Users\\Administrator\\Documents\\GitHub\\CallDetection\\VoiceAnalizer2\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_d6c52008c812186bbb7a0bb5c37149717c6d4a98\\classes.dex
