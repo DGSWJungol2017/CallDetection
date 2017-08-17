@@ -118,18 +118,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void flashLoop(Boolean isRinging) {
-        if(isRinging) {
-            while (true) {
-                SystemClock.sleep(100);
-                turnOnFlashLight();
-                SystemClock.sleep(100);
-                turnOffFlashLight();
-
-                if(!isRinging){
-                    break;
-                }
-            }
-        }else {
+        while (isRinging) {
+            SystemClock.sleep(100);
+            turnOnFlashLight();
+            SystemClock.sleep(100);
             turnOffFlashLight();
         }
     }
